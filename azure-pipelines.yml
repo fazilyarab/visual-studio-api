@@ -37,3 +37,16 @@ steps:
   inputs:
     command: 'build'
     projects: '**/Pipeline-ci-cd-sample.csproj'
+
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: 'Pipeline-ci-cd-sample/Pipeline-ci-cd-sample/Pipeline-ci-cd-sample.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'publish artifacts'
