@@ -52,7 +52,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: false
-    projects: 'src/SimpleAPI/SimpleAPI.csproj'
+    projects: 'Pipeline-ci-cd-sample/Pipeline-ci-cd-sample/Pipeline-ci-cd-sample.csproj'
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
 
